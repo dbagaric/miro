@@ -47,7 +47,7 @@ module Miro
     end
 
     def command
-      Cocaine::CommandLine.new(Miro.options[:image_magick_path], "'#{File.expand_path(@source_image.path)}' -resize '#{Miro.options[:resolution]}' -colors '#{Miro.options[:color_count].to_s}' '#{File.expand_path(@downsampled_image.path)}")
+      Paperclip.run("#{Miro.options[:image_magick_path]} '#{File.expand_path(@source_image.path)}' -resize '#{Miro.options[:resolution]}' -colors '#{Miro.options[:color_count].to_s}' '#{File.expand_path(@downsampled_image.path)}")
     end
 
     def open_source_image
