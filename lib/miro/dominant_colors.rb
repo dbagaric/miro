@@ -47,8 +47,9 @@ module Miro
     end
 
     def command
-      c = Cocaine::CommandLine.new(Miro.options[:image_magick_path], ":in -resize :resolution -colors :colors :out")
-      c.command(:in => File.expand_path('public/zgrrqxom1350630122767.jpg'), :resolution => Miro.options[:resolution], :colors => Miro.options[:color_count].to_s, :out => File.expand_path('public/new.jpg'))
+      line = Cocaine::CommandLine.new(Miro.options[:image_magick_path], ":in -resize :resolution -colors :colors :out")
+      line.command(:in => File.expand_path('public/zgrrqxom1350630122767.jpg'), :resolution => Miro.options[:resolution], :colors => Miro.options[:color_count].to_s, :out => File.expand_path('public/new.jpg'))
+      line
     end
 
     def open_source_image
